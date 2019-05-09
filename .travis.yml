@@ -2,22 +2,24 @@ sudo: required
 language: node_js
 node_js:
     - 10.8.0
+before_install:
+  - export PJ_repo=$PJ_scope/$PJ_name
+  - export PJ_src=projects/$PJ_repo
+  - export PJ_dist=dist/$PJ_repo
+  - export demo_build=dist/demo${PJ_name^}
+  - BUILD=`date +%s`; sed -ie "s/BUILD/$BUILD/g" ./src/environments/environment.prod.ts
 install:
   - npm i
 script:
-  - export PJ_src=projects/$PJ_scope/$PJ_name
-  - export PJ_dist=dist/$PJ_scope/$PJ_name
-  - export demo_build=dist/demo${PJ_name^}
-  - npm install codecov -g
   - npm run lint
   # - npx ng build @$PJ_scope/$PJ_name
   - npx ng test --watch=false --code-coverage
-  - BUILD=`date +%s`; sed -ie "s/BUILD/$BUILD/g" ./src/environments/environment.prod.ts
   - npx ng build --prod --deploy-url /$PJ_name/ --base-href /$PJ_name/
 cache:
     directories:
       - node_modules
 after_success:
+  - npm install codecov -g
   - codecov
 before_deploy:
   - if [[ $TRAVIS_TAG ]]; then
