@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint && npm run lint:html && npm run lint:sass",
     "lint:ts": "ng lint",
-    "lint:html": "htmlhint -f unix --ignore dist/**/*,coverage/**/*",
+    "lint:html": "htmlhint -f unix --ignore dist/**/*,**/coverage/**/*",
     "lint:sass": "sass-lint -c .sasslint -v",
     "e2e": "ng e2e"
   },
