@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
-  template: 'App demo'
+  templateUrl: './demo.tag.html'
 })
-export class AppDemoTag {}
+export class AppDemoTag {
+
+}

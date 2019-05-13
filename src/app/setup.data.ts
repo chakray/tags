@@ -6,7 +6,8 @@ export const heroCfg = {
   mod: 'chakray/tags',
   synopsis: 'collection of angular components',
   tabs: [{ link: 'setup', text: 'Setup' },
-         { link: 'demo', text: 'Demo' }]
+         { link: 'demo', text: 'Demo - icon' }]
+         // { link: 'icon', text: 'Demo - icon2' }]
 };
 
 @Injectable({ providedIn: 'root' })

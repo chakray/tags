@@ -1,0 +1,29 @@
+\:host
+  margin: 0
+  padding: 0
+  visibility: visible
+  font:
+    style: normal
+    weight: normal
+    variant: normal
+  line-height: 1
+  text-transform: none
+  speak: none
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  &:before
+    content: attr(data-icon-code)
+  &.x
+    visibility: hidden
+    font-size: 0
+
+\:host.spin
+  display: inline-block
+  animation: spin 2s infinite linear
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)

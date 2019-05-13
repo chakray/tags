@@ -2,6 +2,6 @@
  * Public API Surface of tags
  */
 
-export * from './lib/tags.service';
-export * from './lib/tags.component';
-export * from './lib/tags.module';
+// export * from './cover/index';
+export * from './icon/index';
+export * from './tags.mod';
