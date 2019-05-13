@@ -3,7 +3,7 @@ import { dev } from 'src/assets/fonts/dev/dev';
 import { iconSet } from '@chakray/tags';
 
 @Component({
-  selector: 'base-tag',
+  selector: 'app-base-tag',
   templateUrl: './base.tag.html',
   styleUrls: ['./base.tag.sass'],
   providers: [

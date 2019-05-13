@@ -9,9 +9,8 @@ const routes: Routes = [{
   component: BaseTag,
 }];
 
-
 @NgModule({
-  imports:[
+  imports: [
     RouterModule.forChild(routes),
     TagsMod
   ],

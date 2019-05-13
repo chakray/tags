@@ -101,6 +101,7 @@ rules:
         - overflow
 
         - color
+        - font
         - font-family
         - font-size
         - font-style
@@ -128,7 +129,6 @@ rules:
     -
       properties:
         - color
-        - content
   border-zero:
     - 2
   class-name-format:

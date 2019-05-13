@@ -1,13 +1,13 @@
 @mixin add-icon-font($fn, $hash: 'asdsg', $base: '/assets/fonts') {
-    @font-face {
-      font: {
-        family: '#{$fn}';
-        weight: normal;
-        style: normal;
-      }
-      src:
-        url('#{$base}/#{$fn}.svg?#{$hash}##{$fn}') format('svg'),
-        url('#{$base}/#{$fn}.ttf?#{$hash}') format('truetype'),
-        url('#{$base}/#{$fn}.woff?#{$hash}') format('woff');
+  @font-face {
+    font: {
+      family: '#{$fn}';
+      weight: normal;
+      style: normal;
     }
+    src:
+    url('#{$base}/#{$fn}.svg?#{$hash}##{$fn}') format('svg'),
+    url('#{$base}/#{$fn}.ttf?#{$hash}') format('truetype'),
+    url('#{$base}/#{$fn}.woff?#{$hash}') format('woff');
+  }
 }
