@@ -41,6 +41,8 @@ MIT
 @chakray/marked
 MIT
 
+@chakray/tags
+
 @chakray/utils
 MIT
 
