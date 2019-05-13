@@ -11,8 +11,8 @@ const routes: Routes = [{
 
 @NgModule({
   imports: [
+    TagsMod,
     RouterModule.forChild(routes),
-    TagsMod
   ],
   providers: [],
   declarations: [BaseTag],

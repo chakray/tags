@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { CtIconMod } from './icon';
+import { CtIconMod } from './icon/icon.mod';
+
 @NgModule({
-  declarations: [],
   imports: [
     CtIconMod
   ],

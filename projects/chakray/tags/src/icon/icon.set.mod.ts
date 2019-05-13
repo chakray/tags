@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
 import { iconSet } from './icon.set';
 
-@NgModule({})
+@NgModule()
 export class CtIconSetMod {}
