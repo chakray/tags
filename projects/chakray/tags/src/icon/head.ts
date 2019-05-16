@@ -1,7 +1,8 @@
 import { Injectable, Inject } from '@angular/core';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
+import { CtIconSetMod } from './icon.set.mod';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: CtIconSetMod })
 export class Head {
   private used = {};
   constructor(@Inject(DOCUMENT) private doc) { }
@@ -11,7 +12,7 @@ export class Head {
     this.link({
       rel: 'stylesheet',
       type: 'text/css',
-      href: href });
+      href });
   }
   canonical(url) {
     this.link({ rel: 'canonical', href: url || this.doc.URL });
