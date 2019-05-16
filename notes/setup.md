@@ -29,21 +29,14 @@ import { yourIcons } from 'src/assets/fonts/dev/dev';
 ...
 ```
 
-Add font file:
-__styles.sass__
-```
-@import 'projects/chakray/tags/src/icon/add-icon-font'
-+add-icon-font('dev', '', '/assets/fonts/dev')
-```
-
 __featured.component.html__
 ```
 <!-- normal form -->
-<ct-i [ff]='i.ff' [code]='i.typescript'></ct-i>
+<ct-i [ff]='i._.ff' [code]='i.typescript'></ct-i>
 <!-- shorter selector -->
-<cti [ff]='i.ff' [code]='i.firebase'></cti>
+<cti [ff]='i._.ff' [code]='i.firebase'></cti>
 <!-- animation -->
-<ct-i [ff]='i.ff' [code]='i.rails' class='spin'></ct-i>
+<ct-i [ff]='i._.ff' [code]='i.rails' class='spin'></ct-i>
 <!-- non-exists code -->
 <ct-i code='\e1234'></ct-i>
 <!-- use given font family -->

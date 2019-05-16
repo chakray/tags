@@ -1,5 +1,7 @@
 import { Inject, HostBinding, Input, Component } from '@angular/core';
-import { iconSet } from './icon.set';
+
+import { Head } from './head';
+import { iconSet, IconSets, IconSet } from './icon.set';
 
 @Component({
   selector: 'ct-icon,ct-i,cti',
@@ -20,14 +22,20 @@ export class CtIconTag {
       v = '.' + v;
     }
     const [ns, key] = v.split('.');
-    const set = this.set[ns || this.preset] || {};
-    this.ff = set.ff;
-    this.code = set[key];
+    const set = this.set[ns || this.preset] || new IconSet();
+    this.ff = set._.ff;
+    this.code = set[key] as string;
   }
   @HostBinding('attr.data-icon-code') _code = '';
   @HostBinding('class.x') x = false;
   preset = '';
-  constructor(@Inject(iconSet) private set: any) {
-    this.preset = Object.keys(set)[0];
+  constructor(
+    head: Head,
+    @Inject(iconSet) private set: IconSets) {
+    const ks = Object.keys(set);
+    this.preset = ks[0];
+    ks.forEach(k => {
+      head.style(set[k]._.cssUrl);
+    });
   }
 }

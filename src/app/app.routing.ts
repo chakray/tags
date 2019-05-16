@@ -6,8 +6,10 @@ import { ChHeroMod, ChMarkedTabTag, heroConfig } from '@chakray/hero';
 import { SetupData, heroCfg } from './setup.data';
 import { AppDemoTag } from './demo/demo.tag';
 
+export const redirectTo = '/setup';
+
 const routes: Routes = [{
-  path: '', pathMatch: 'full', redirectTo: 'demo'
+  path: '', pathMatch: 'full', redirectTo
 }, {
   path: 'setup',
   resolve: {
@@ -19,7 +21,7 @@ const routes: Routes = [{
   component: AppDemoTag,
   loadChildren: '../demo#DemoMod'
 }, {
-  path: '**', pathMatch: 'full', redirectTo: 'demo'
+  path: '**', pathMatch: 'full', redirectTo
 }];
 
 

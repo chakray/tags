@@ -1,5 +1,8 @@
 export const dev = {
-  ff: 'dev',
+  _: {
+    cssUrl: '/assets/fonts/dev/dev.css',
+    ff: 'dev',
+  },
   firebase: '\e900',
   angular: '\e901',
   css3: '\e902',

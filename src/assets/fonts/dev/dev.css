@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'dev';
+  font-weight: normal;
+  font-style: normal;
+  src: local('dev'), url('/assets/fonts/dev/dev.woff?12345') format('woff');
+}
