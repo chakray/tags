@@ -5,7 +5,8 @@ import { iconSet } from './icon.set';
 import { CtIconSetMod as Mod } from './icon.set.mod';
 
 Spec.tag(Tag, {
-  providers: [{ provide: iconSet, useValue: { test: { ff: 'aaa', item: '123' }} }]
+  imports: [Mod],
+  providers: [{ provide: iconSet, useValue: { test: { _: { ff: 'aaa' }, item: '123' }} }]
 }, (ref) => {
   let tag: Tag;
   beforeEach(() => {
