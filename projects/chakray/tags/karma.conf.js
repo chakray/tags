@@ -20,7 +20,7 @@ module.exports = function (config) {
     },
     coverageIstanbulReporter: {
       reports,
-      dir: require('path').join(__dirname, '../coverage/demoUtils'),
+      dir: require('path').join(__dirname, '../../../coverage/chakray/tags'),
       fixWebpackSourcePaths: true
     },
     reporters,
