@@ -42,7 +42,7 @@ deploy:
   - provider: releases
     api_key: $github
     skip_cleanup: true
-    draft: true
+    draft: false
     on:
       tags: true
 
