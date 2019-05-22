@@ -1,4 +1,5 @@
 import { Inject, HostBinding, Input, Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 import { IconSetManager } from './icon-set.manager';
 
@@ -20,11 +21,31 @@ export class CtIconTag {
       v = '.' + v;
     }
     const [ns, key] = v.split('.');
-    this.ism.findRef(ns).subscribe(ref => {
-      this.ff = ref.options.ff;
-      this.code = ref.kegs[key];
-    });
+    this.stopRetry();
+    this.makeRef(ns, key);
   }
-  constructor(private ism: IconSetManager) {
+  private retry: Subscription;
+  constructor(private ism: IconSetManager) { }
+  private stopRetry() {
+    if (!this.retry) { return; }
+    this.retry.unsubscribe();
+    this.retry = null;
+  }
+  private update(ref, key) {
+    this.ff = ref.options.ff;
+    this.code = ref.kegs[key];
+    if (this.ff) {
+      this.stopRetry();
+    }
+  }
+  private makeRef(ns, key) {
+    this.ism.findRef(ns).subscribe(ref => {
+      this.update(ref, key);
+      if (!this.ff) {
+        this.retry = this.ism.retry(ns).subscribe(r => {
+          this.update(r, key);
+        });
+      }
+    });
   }
 }

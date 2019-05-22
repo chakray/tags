@@ -1,3 +1,4 @@
+export * from './icon/icon-set.manager';
 export * from './icon/icon.set';
 export * from './icon/icon.mod';
 export * from './icon/icon.set.mod';

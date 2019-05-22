@@ -44,3 +44,13 @@ __featured.component.html__
 <!-- use default font family -->
 <ct-i key='python'></ct-i>
 ```
+
+## runtime icon font injection
+
+Check IconSetParams for more detail
+
+```
+  constructor(private ism: IconSetManager) {
+    ism.inject(new IconSetParams());
+  }
+```

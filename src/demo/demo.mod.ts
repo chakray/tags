@@ -4,9 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { TagsMod } from '@chakray/tags';
 import { BaseTag } from './base/base.tag';
 
-import { dev } from 'src/assets/fonts/dev/dev';
-import { iconSet } from '@chakray/tags';
-
 const routes: Routes = [{
   path: '',
   component: BaseTag,
@@ -17,9 +14,7 @@ const routes: Routes = [{
     TagsMod,
     RouterModule.forChild(routes),
   ],
-  providers: [
-    { provide: iconSet, useValue: dev, multi: true }
-  ],
+  providers: [],
   declarations: [BaseTag],
   exports: [RouterModule]
 })
