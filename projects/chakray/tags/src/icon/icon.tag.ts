@@ -1,7 +1,6 @@
 import { Inject, HostBinding, Input, Component } from '@angular/core';
 
-import { Head } from './head';
-import { iconSet, IconSets, IconSet } from './icon.set';
+import { IconSetManager } from './icon-set.manager';
 
 @Component({
   selector: 'ct-icon,ct-i,cti',
@@ -9,33 +8,23 @@ import { iconSet, IconSets, IconSet } from './icon.set';
   styleUrls: ['icon.tag.sass']
 })
 export class CtIconTag {
+  @HostBinding('attr.data-icon-code') codeStr = '';
+  @HostBinding('class.x') x = false;
   @HostBinding('style.font-family') @Input() ff = '';
   @Input() set code(v) {
-    this._code = String.fromCharCode(parseInt(v, 16));
+    this.codeStr = String.fromCharCode(parseInt(v, 16));
     this.x = !!!v;
-  }
-  get code() {
-    return this._code;
   }
   @Input() set key(v) {
     if (v.indexOf('.') < 0) {
       v = '.' + v;
     }
     const [ns, key] = v.split('.');
-    const set = this.set[ns || this.preset] || new IconSet();
-    this.ff = set._.ff;
-    this.code = set[key] as string;
-  }
-  @HostBinding('attr.data-icon-code') _code = '';
-  @HostBinding('class.x') x = false;
-  preset = '';
-  constructor(
-    head: Head,
-    @Inject(iconSet) private set: IconSets) {
-    const ks = Object.keys(set);
-    this.preset = ks[0];
-    ks.forEach(k => {
-      head.style(set[k]._.cssUrl);
+    this.ism.findRef(ns).subscribe(ref => {
+      this.ff = ref.options.ff;
+      this.code = ref.kegs[key];
     });
+  }
+  constructor(private ism: IconSetManager) {
   }
 }

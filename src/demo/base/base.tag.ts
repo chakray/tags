@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
-import { dev } from 'src/assets/fonts/dev/dev';
-import { iconSet } from '@chakray/tags';
+// import { dev } from 'src/assets/fonts/dev/dev';
+// import { iconSet } from '@chakray/tags';
 
 @Component({
   selector: 'app-base-tag',
   templateUrl: './base.tag.html',
   styleUrls: ['./base.tag.sass'],
   providers: [
-    { provide: iconSet, useValue: { dev } }
+    // { provide: iconSet, useValue: dev, multi: true }
   ]
 })
-export class BaseTag {
-  i = dev;
-}
+export class BaseTag { }
