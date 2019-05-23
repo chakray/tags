@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ChHeroMod, ChMarkedTabTag, heroConfig } from '@chakray/hero';
 
-import { SetupData, heroCfg } from './setup.data';
+import { heroCfg } from './app.config';
+import { SetupData } from './setup.data';
 import { AppDemoTag } from './demo/demo.tag';
 
 export const redirectTo = '/setup';

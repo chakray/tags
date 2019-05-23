@@ -1,0 +1,16 @@
+<cta class='toast' act='push'> Push </cta>
+<cta class='toast' act='push' frozen='true'> Push </cta>
+---
+<cta class='toast' act='sink' (event)='evt($event)'> {{ snkTxt }} </cta>
+<cta class='toast' act='sink' frozen='true'> Sink </cta>
+---
+<cta (event)='osEvt($event)' [class.done]='osState === 3'>
+  <ng-container *ngIf='osState === 1'> One shot </ng-container>
+  <ng-container *ngIf='osState === 2'> Loading ... </ng-container>
+  <ng-container *ngIf='osState === 3'> Done :) </ng-container>
+</cta>
+
+<cta (event)='waitEvt($event)'>
+  <ng-container *ngIf='wtState === 1'> Update </ng-container>
+  <ng-container *ngIf='wtState === 2'> Loading ... </ng-container>
+</cta>
