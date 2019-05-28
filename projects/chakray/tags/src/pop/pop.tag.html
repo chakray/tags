@@ -1,0 +1,8 @@
+<div class='backdrop'></div>
+<div class='wrap'>
+    <ng-content></ng-content>
+    <div class='actions'>
+      <cta *ngFor='let a of actions'
+        [class]='a.class' (click)='act(a)'> {{ a.text }} </cta>
+    </div>
+</div>

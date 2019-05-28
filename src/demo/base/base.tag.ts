@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { dev } from 'src/assets/fonts/dev/dev';
-import { IconSetManager } from '@chakray/tags';
+
+import { IconSetManager, CtPopTag as Pop } from '@chakray/tags';
 
 export const loc = {
   _: {
@@ -17,6 +18,7 @@ export const loc = {
   styleUrls: ['./base.tag.sass'],
 })
 export class BaseTag {
+  @ViewChild('pop') pop: Pop;
   i = 0;
   vary = 'no.empty';
   constructor(private ism: IconSetManager) {
@@ -26,6 +28,14 @@ export class BaseTag {
     setTimeout(() => {
       ism.inject(dev);
       this.vary = 'dev.rails';
+      this.pop.open().subscribe(({ action: a, tag }) => {
+        if (a.data) {
+          // console.log('log')
+        } else {
+          // console.log('skip')
+        }
+        tag.close();
+      });
     }, 2000);
     setTimeout(() => {
       this.vary = 'lm.m2';
