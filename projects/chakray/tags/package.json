@@ -1,6 +1,6 @@
 {
   "name": "@chakray/tags",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0"
@@ -8,9 +8,10 @@
   "description": "A collection of ng tags",
   "license": "MIT",
   "keywords": [
-    "angular",
-    "tags", "lazy image", "dynamic icon font", "icon font",
-    "chakray"
+    "angular", "chakray", "tags",
+     "dynamic icon font", "icon font",
+     "lazy image",
+     "pop"
   ],
   "repository": {
     "type": "git",
