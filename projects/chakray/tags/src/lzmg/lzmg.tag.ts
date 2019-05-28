@@ -1,10 +1,13 @@
 import { HostBinding, ViewChild, ElementRef, Input, Component, AfterViewInit } from '@angular/core';
 
+import { Observer } from './observer';
+
 @Component({
   selector: 'ct-lzmg,ct-zmg',
   template: `<ng-content></ng-content>
     <img #img (load)='loaded($event)'/>`,
-  styleUrls: ['./lzmg.tag.sass']
+  styleUrls: ['./lzmg.tag.sass'],
+  providers: [Observer]
 })
 export class CtLzmgTag implements AfterViewInit {
   @ViewChild('img') img: ElementRef;
@@ -30,16 +33,12 @@ export class CtLzmgTag implements AfterViewInit {
   }
   private _visible = false;
   private _src;
-  constructor(private el: ElementRef) {}
+  constructor(
+    private obs: Observer,
+    private el: ElementRef) {}
   ngAfterViewInit() {
     const { nativeElement: node } = this.el;
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(({ isIntersecting }) => {
-        this.visible = isIntersecting;
-        // obs.unobserve(node);
-      });
-    });
-    obs.observe(node);
+    this.obs.on(this, node);
   }
   loaded(e) {
     this.on = true;

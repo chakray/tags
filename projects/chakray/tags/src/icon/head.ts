@@ -14,9 +14,6 @@ export class Head {
       type: 'text/css',
       href });
   }
-  canonical(url) {
-    this.link({ rel: 'canonical', href: url || this.doc.URL });
-  }
   link(attrs) {
     const link: HTMLLinkElement = this.doc.createElement('link');
     Object.keys(attrs).forEach(k => {
