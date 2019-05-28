@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 
-import { CtBgImgTag as Tag } from './bg-img.tag';
+import { CtLzmgTag as Tag } from './lzmg.tag';
 
 @NgModule({
   declarations: [Tag],
   exports: [Tag]
 })
-export class CtBgImgMod {}
+export class CtLzmgMod {}

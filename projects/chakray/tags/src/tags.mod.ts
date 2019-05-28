@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 
 import { CtIconMod } from './icon/icon.mod';
-import { CtCallToActionMod } from './call-to-action';
-import { CtBgImgMod } from './bg-img';
+import { CtCallToActionMod } from './call-to-action/call-to-action.mod';
+import { CtLzmgMod } from './lzmg/lzmg.mod';
 
 const mods = [
-  CtBgImgMod,
+  CtLzmgMod,
   CtIconMod,
   CtCallToActionMod
 ];
